@@ -32,7 +32,7 @@ const resolvers = {
   },
   Mutation: {
     createTodo: (root, args, context, info) => {
-      return { id: 100, name: 'new todo', done: false };
+      return db.Todo.create({ name: args.name, done: false });
     },
   },
 };

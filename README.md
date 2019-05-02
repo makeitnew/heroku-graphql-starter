@@ -63,7 +63,7 @@ $ git push heroku master
 To open your app in a browser do this:
 
 ```bash
-heroku run
+heroku open
 ```
 
 This will bring up the GraphQL playground. You should be able to run the `hello` query. But the other operations will fail because we haven't yet configured our app to connect to a hosted Postgres database service on Heroku.
@@ -117,4 +117,13 @@ To run the database migrations on the production database, we'll connect a `bash
 
 ```bash
 $ heroku run bash
+```
+
+This will create a shell on the heroku filesystem where the app is stored.
+
+```bash
+# cd to the dist directory (not src/)
+$ cd dist
+~/dist $ sequelize db:migrate
+~/dist $ sequelize db:seed:all
 ```
