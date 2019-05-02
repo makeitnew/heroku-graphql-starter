@@ -1,0 +1,19 @@
+{
+  "development": {
+    "username": "sds",
+    "password": null,
+    "database": "gql_starter_db_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "sds",
+    "password": null,
+    "database": "gql_starter_db_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL"
+  }
+}
