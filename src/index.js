@@ -5,6 +5,8 @@ import {
   ForbiddenError,
 } from 'apollo-server';
 
+import db from './models';
+
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
   type Query {
@@ -23,15 +25,10 @@ const typeDefs = gql`
   }
 `;
 
-const TODOS = [
-  { id: 1, name: 'one', done: false },
-  { id: 2, name: 'two', done: false },
-];
-
 const resolvers = {
   Query: {
     hello: () => 'world',
-    todos: (root, args, context, info) => TODOS,
+    todos: (root, args, context, info) => db.Todo.findAll(),
   },
   Mutation: {
     createTodo: (root, args, context, info) => {
