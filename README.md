@@ -50,24 +50,6 @@ webdev: yarn start
 
 We'll use the second entry (`webdev`) when running locally. The first (`web`) will be used when running on Heroku.
 
-## Deploy to Heroku
-
-Commit latest changes (if any) and deploy by pushing the latest commit to the git remote on Heroku.
-
-```bash
-$ git push heroku master
-```
-
-## Open the App on Heroku
-
-To open your app in a browser do this:
-
-```bash
-heroku open
-```
-
-This will bring up the GraphQL playground. You should be able to run the `hello` query. But the other operations will fail because we haven't yet configured our app to connect to a hosted Postgres database service on Heroku.
-
 ## Configure Local Database and Run Locally
 
 The Sequelize configuration file in `src/config.json` has three settings for `development`, `test`, and `production`.
@@ -94,6 +76,24 @@ $ heroku local webdev
 ```
 
 Note how we're using the `webdev` entry from the `Procfile` to specify how to start the server locally.
+
+## Deploy to Heroku
+
+Commit latest changes (if any) and deploy by pushing the latest commit to the git remote on Heroku.
+
+```bash
+$ git push heroku master
+```
+
+## Open the App on Heroku
+
+To open your app in a browser do this:
+
+```bash
+heroku open
+```
+
+This will bring up the GraphQL playground. You should be able to run the `hello` query. But the other operations will fail because we haven't yet configured our app to connect to a hosted Postgres database service on Heroku.
 
 ## Add a Postgres Database on Heroku
 
@@ -127,3 +127,24 @@ $ cd dist
 ~/dist $ sequelize db:migrate
 ~/dist $ sequelize db:seed:all
 ```
+
+## Update App, Re-deploy to Heroku
+
+Let's make a trivial change to the app. For example, change the code in the `hello` query
+resolver in `src/index.js` from `world` to `hello world`.
+
+Now commit to git and push the commit to your Heroku repository:
+
+```bash
+$ git commit -m 'update hello resolver'
+# push code to heroku
+$ git push heroku master
+```
+
+Wait till the code uploads and the app is restarted. Then try
+
+```bash
+$ heroku open
+```
+
+Enjoy!
