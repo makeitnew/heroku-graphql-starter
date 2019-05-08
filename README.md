@@ -8,6 +8,12 @@ This readme outlines the steps I took to create a simple GraphQL API with Apollo
 
 Clone this repository then `cd heroku-graphql-starter`.
 
+## Install Node Dependencies
+
+```bash
+$ yarn install
+```
+
 ## Install Heroku CLI
 
 Instructions for installing the `heroku` CLI tool are [here](https://devcenter.heroku.com/articles/heroku-cli).
@@ -54,6 +60,8 @@ We'll use the second entry (`webdev`) when running locally. The first (`web`) wi
 
 The Sequelize configuration file in `src/config.json` has three settings for `development`, `test`, and `production`.
 
+> The `db:create` command will fail as it's using my `username`. Change the `username` to yours.
+
 To create, migrate, and seed the development database, do the following:
 
 ```bash
@@ -94,6 +102,9 @@ heroku open
 ```
 
 This will bring up the GraphQL playground. You should be able to run the `hello` query. But the other operations will fail because we haven't yet configured our app to connect to a hosted Postgres database service on Heroku.
+
+> Horoku might display an error when you try to open the app. This is because
+> we haven't yet set up a Postgres database as shown in the following step.
 
 ## Add a Postgres Database on Heroku
 
