@@ -65,6 +65,8 @@ The Sequelize configuration file in `src/config.json` has three settings for `de
 To create, migrate, and seed the development database, do the following:
 
 ```bash
+# cd into the src directory
+$ cd src
 # create the dev database
 $ npx sequelize db:create
 
